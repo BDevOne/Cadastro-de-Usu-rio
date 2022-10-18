@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +14,7 @@ namespace CadastroPessoa
             this.Nome = " ";
             this.Idade = 0;
             this.Cpf = 0;
+            this.Sexo = " ";
         }
 
         public Pad(String nome, int idade, int cpf) // Adicionar telefone do usuário
@@ -29,7 +30,7 @@ namespace CadastroPessoa
         public String Nome
         {
             get { return nome; }
-            set { nome = value.ToUpper(); }
+            set { nome = value; }
         }
         private int idade;
         public int Idade
@@ -50,15 +51,16 @@ namespace CadastroPessoa
 
         }
 
-        private int cpf;
-        public int Cpf
+        private Int64 cpf;
+        public Int64 Cpf
+
         {
             get { return cpf; }
 
 
             set
             {
-                if (value >= 0)
+                if (value > 0)
                 {
                     cpf = value;
                 }
@@ -66,11 +68,21 @@ namespace CadastroPessoa
             }
         }
 
+        private string sexo;
+
+        public string Sexo
+        {
+            get { return sexo; }
+            set => sexo = value;
+        }
+
+
         public void ExibirDados()
         {
             Console.WriteLine("Nome: " + this.Nome);
             Console.WriteLine("Idade: " + this.Idade);
             Console.WriteLine("CPF: " + this.Cpf);
+            Console.WriteLine("Sexo: " + Sexo);
         }
     }
 }
