@@ -1,2 +1,3 @@
 # Cadastro-de-Usuario
-Criando forma de cadastro de usuarios como uma lista de contato
+# Implementado - (Nome, idade e Cpf)
+# Implementar - (Data de nascimento e observações do usuário)
