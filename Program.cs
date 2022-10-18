@@ -16,10 +16,10 @@ namespace CadastroPessoa
             Pad p2;
          // Pad p4; <- Usuário para teste do telefone
 
-            // Cadastrar usuário
-            // Solicitar informações do usuário (Documentos)
-            // Adicionar telefone do usuário -- Criar método de solicitação de telefone
-            // Implementar Data de nascimento <- (Em andamento...) -- observações do usuário
+            // Cadastrar usuário -- Criado
+            // Solicitar informações do usuário (Documentos) -- Criado
+            // Implementar telefone do usuário -- Criar
+            // Implementar Data de nascimento -- Criar
 
             Console.WriteLine("####Cadastro de usuário####\n");
 
