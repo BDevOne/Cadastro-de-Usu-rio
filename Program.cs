@@ -14,7 +14,7 @@ namespace CadastroPessoa
             Pad p1;
             Pad p3;
             Pad p2;
-         // Pad p4; <- Usuário pra teste
+         // Pad p4; <- Usuário de teste
 
             // Implementar mais usuários para cadastro 
             // Cadastrar usuário
