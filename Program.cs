@@ -80,7 +80,7 @@ namespace CadastroPessoa
 
             // Usuário cadastrado - Não foi possível cadastrar
 
-            Console.WriteLine("\n#Informações dos usuários#\n");
+            Console.WriteLine("\n#Dados dos usuários#\n");
 
             if ((p1.Idade >= 18))
             {
