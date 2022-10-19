@@ -51,8 +51,8 @@ namespace CadastroPessoa
 
         }
 
-        private Int64 cpf;
-        public Int64 Cpf
+        private Int64 cpf; // Trocar para string 
+        public Int64 Cpf // Adicionar simbolos
 
         {
             get { return cpf; }
