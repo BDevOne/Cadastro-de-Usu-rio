@@ -10,10 +10,8 @@ namespace CadastroPessoa
     {
         static void Main(string[] args)
         {
-
+            // Usuário Pad p2 , Pad p3
             Pad p1;
-            Pad p3;
-            Pad p2;
 
             // Implentar API de busca por usuário
             // Adicionar telefone do usuário -- Criar método de solicitação de telefone 
@@ -29,43 +27,20 @@ namespace CadastroPessoa
             p1.Nome = Console.ReadLine();
             Console.Write("\nCPF do usuário: \n");
             p1.Cpf = Console.ReadLine();
-            Console.Write("\nIdade do 1 usuário: \n");
+            Console.Write("\nIdade do usuário: \n");
             p1.Idade = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("\nTelefone do usuário: \n");
+            p1.Telefone = Convert.ToInt32(Console.ReadLine());
+
             Console.Write("\nSexo do usuário: \n");
             p1.Sexo = Console.ReadLine();
 
-            // Leitura de dados usuário 2
+            // Lógica do Cadastro 
 
-            Console.WriteLine("\nInformações do usuário 2\n");
+            Console.WriteLine("\n#Dados do usuário cadastrado#\n");
 
-            Console.Write("Nome do 2 usuário: \n");
-            p2 = new Pad();
-            p2.Nome = Console.ReadLine();
-            Console.Write("\nCPF do usuário: \n");
-            p2.Cpf = Console.ReadLine();
-            Console.Write("\nIdade do 2 usuário: \n");
-            p2.Idade = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\nSexo do usuário: \n");
-            p2.Sexo = Console.ReadLine();
-
-            Console.WriteLine("\nInformações do usuário 3\n");
-
-            // Leitura de dados usuário 3
-            Console.Write("Nome do 3 usuário: \n");
-            p3 = new Pad();
-            p3.Nome = Console.ReadLine();
-            Console.Write("\nCPF do usuário: \n");
-            p3.Cpf = Console.ReadLine();
-            Console.Write("\nIdade do 3 usuário: \n");
-            p3.Idade = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\nSexo do usuário: \n");
-            p3.Sexo = Console.ReadLine();
-
-           // Lógica do Cadastro 
-
-            Console.WriteLine("\n#Dados dos usuários#\n");
-
-            Pad[] pessoas = { p1, p2, p3 };
+            Pad[] pessoas = { p1 };
 
             for (int i = 0; i < pessoas.Length; i++)
             {
@@ -74,9 +49,9 @@ namespace CadastroPessoa
                     Console.WriteLine($"\nUsuário {i + 1} cadastrado \n");
                     pessoas[i].ExibirDados();
                 }
-                else
+                else // add mensagem do por que não foi cadastrado
                 {
-                    Console.WriteLine($"\nNão foi possível cadastrar usuário {i + 1} \n");
+                    Console.WriteLine($"\nNão foi possível cadastrar usuário  {i + 1} \n");
                     pessoas[i].ExibirDados();
                 }
             }
@@ -85,6 +60,3 @@ namespace CadastroPessoa
         }
     }
 }
-
-
-
