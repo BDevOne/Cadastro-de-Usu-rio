@@ -15,24 +15,27 @@ namespace CadastroPessoa
             this.Idade = 0;
             this.Cpf = " ";
             this.Sexo = " ";
+            this.Telefone = 0;
         }
 
-        public Pad(String nome, int idade, String cpf) // Adicionar telefone do usuário
+        public Pad(String nome, int idade, String cpf)
         {
             this.Nome = "nome";
             this.Idade = idade;
             this.Cpf = cpf;
+            this.Telefone = telefone;
+
         }
 
         // Propriedades
-        
+
         private String nome;
         public String Nome
         {
             get { return nome; }
             set { nome = value; }
         }
-        
+
         private int idade;
         public int Idade
         {
@@ -78,7 +81,7 @@ namespace CadastroPessoa
                 
             }
         }
-        
+
         private string sexo;
         public string Sexo
         {
@@ -86,16 +89,34 @@ namespace CadastroPessoa
             set => sexo = value;
         }
 
+        private int telefone;
+        public int Telefone
 
-        // Exibir dados na tela 
-        
+        {
+            get { return telefone; }
+
+            set
+            {
+                if (value >= 9)
+                {
+                    telefone = value;
+                }
+                else
+                {
+                    telefone = 0;
+                }
+            }
+       
+                
+        }
+
         public void ExibirDados()
         {
             Console.WriteLine("Nome: " + this.Nome);
             Console.WriteLine("Idade: " + this.Idade);
             Console.WriteLine("CPF: " + this.Cpf);
+            Console.WriteLine("Idade: " + this.Telefone);
             Console.WriteLine("Sexo: " + Sexo);
         }
     }
 }
-
