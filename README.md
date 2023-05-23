@@ -1,6 +1,8 @@
 # Cadastro de usuario
 
-Implementados - (Nome, idade e CPF)
+Implementados - (Nome, idade, CPF e telefone)
+ 
+
 
 Leitura de dados dos usuários
 
@@ -37,5 +39,4 @@ Lógica do cadastro
 # Itens a implementar 
 
 1. Data de nascimento - Pegando o cálculo pela Idade informada 
-2. Telefone - Implementar Numero de telefone
-3. Limpar tela ao terminar cadastro de cada Usuário
+2. Limpar tela ao terminar cadastro de cada Usuário
