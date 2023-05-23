@@ -1,3 +1,3 @@
 # Cadastro de usuario
-# Implementado - (Nome, idade e Cpf)
-# Implementar - (Data de nascimento e telefone)
+Implementados - (Nome, idade e Cpf)
+1. Implementar - (Data de nascimento e telefone)
