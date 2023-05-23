@@ -80,7 +80,6 @@ namespace CadastroPessoa
         }
         
         private string sexo;
-
         public string Sexo
         {
             get { return sexo; }
@@ -88,6 +87,8 @@ namespace CadastroPessoa
         }
 
 
+        // Exibir dados na tela 
+        
         public void ExibirDados()
         {
             Console.WriteLine("Nome: " + this.Nome);
