@@ -13,11 +13,11 @@ namespace CadastroPessoa
         {
             this.Nome = " ";
             this.Idade = 0;
-            this.Cpf = 0;
+            this.Cpf = " ";
             this.Sexo = " ";
         }
 
-        public Pad(String nome, int idade, int cpf) // Adicionar telefone do usuário
+        public Pad(String nome, int idade, String cpf) // Adicionar telefone do usuário
         {
             this.Nome = "nome";
             this.Idade = idade;
@@ -25,13 +25,14 @@ namespace CadastroPessoa
         }
 
         // Propriedades
+        
         private String nome;
-
         public String Nome
         {
             get { return nome; }
             set { nome = value; }
         }
+        
         private int idade;
         public int Idade
         {
@@ -51,8 +52,8 @@ namespace CadastroPessoa
 
         }
 
-        private Int64 cpf; // Trocar para string 
-        public Int64 Cpf // Adicionar simbolos
+        private String cpf; 
+        public String Cpf 
 
         {
             get { return cpf; }
@@ -60,14 +61,24 @@ namespace CadastroPessoa
 
             set
             {
-                if (value > 0)
+                if (!string.IsNullOrEmpty(value))
                 {
-                    cpf = value;
+                    // Remove formatação do CPF 
+                    value  = value.Replace(".", "").Replace("-", "");
+
+                    if (value.Length == 11)
+                    {
+                        cpf = value.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+                    }
+                    else
+                    {
+                        cpf = "CPF inválido";
+                    }
                 }
-                else this.cpf = 0;
+                
             }
         }
-
+        
         private string sexo;
 
         public string Sexo
