@@ -115,7 +115,7 @@ namespace CadastroPessoa
             Console.WriteLine("Nome: " + this.Nome);
             Console.WriteLine("Idade: " + this.Idade);
             Console.WriteLine("CPF: " + this.Cpf);
-            Console.WriteLine("Idade: " + this.Telefone);
+            Console.WriteLine("Telefone: " + this.Telefone);
             Console.WriteLine("Sexo: " + Sexo);
         }
     }
