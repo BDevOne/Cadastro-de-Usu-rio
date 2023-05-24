@@ -25,13 +25,15 @@ namespace CadastroPessoa
             Console.Write("Nome do 1 usuário: \n");
             p1 = new Pad();
             p1.Nome = Console.ReadLine();
+
             Console.Write("\nCPF do usuário: \n");
             p1.Cpf = Console.ReadLine();
+
             Console.Write("\nIdade do usuário: \n");
             p1.Idade = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("\nTelefone do usuário: \n");
-            p1.Telefone = Convert.ToInt32(Console.ReadLine());
+            p1.Telefone = (Console.ReadLine());
 
             Console.Write("\nSexo do usuário: \n");
             p1.Sexo = Console.ReadLine();
@@ -49,11 +51,12 @@ namespace CadastroPessoa
                     Console.WriteLine($"\nUsuário {i + 1} cadastrado \n");
                     pessoas[i].ExibirDados();
                 }
-                else // add mensagem do por que não foi cadastrado
+                else // add mensagem do por que não foi cadastrado 
                 {
                     Console.WriteLine($"\nNão foi possível cadastrar usuário  {i + 1} \n");
                     pessoas[i].ExibirDados();
                 }
+                
             }
 
             Console.ReadLine();
