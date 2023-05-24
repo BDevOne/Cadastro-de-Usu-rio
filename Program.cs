@@ -35,8 +35,13 @@ namespace CadastroPessoa
             Console.Write("\nTelefone do usuário: \n");
             p1.Telefone = (Console.ReadLine());
 
+            Console.Write("\nData de nascimento do usuário: \n");
+            p1.Date = (Console.ReadLine());
+
             Console.Write("\nSexo do usuário: \n");
             p1.Sexo = Console.ReadLine();
+
+            Console.Clear(); // Limpa as informações
 
             // Lógica do Cadastro 
 
