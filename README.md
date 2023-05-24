@@ -59,8 +59,25 @@ Melhoria aplicada no tratamento das informações do telefone
                         telefone = "Telefone não cadastrado";
                     }
                 }
+                
+                
+
+Melhoria aplicada no tratamento de data de nascimento 
+
+            if (!string.IsNullOrEmpty(value))
+                {
+                    value = value.Replace("/", "");
+
+                    if (value.Length == 8)
+                    {
+                        date = value.Insert(2, "/").Insert(5, "/");
+                    }
+                    else
+                    {
+                        date = "Formato inválido";
+                    }
+                }
 
 # Itens a implementar 
 
-1. Data de nascimento - Pegando o cálculo pela Idade informada 
-2. Limpar tela ao terminar cadastro de cada Usuário
+1. Data de nascimento - Pegando o cálculo pela Idade informada Andamento... 
