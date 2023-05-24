@@ -16,6 +16,7 @@ namespace CadastroPessoa
             this.Cpf = " ";
             this.Sexo = " ";
             this.Telefone = " ";
+            this.Date = " ";
         }
 
         public Pad(String nome, int idade, String cpf)
@@ -24,7 +25,6 @@ namespace CadastroPessoa
             this.Idade = idade;
             this.Cpf = cpf;
             this.Telefone = telefone;
-
         }
 
         // Propriedades
@@ -89,6 +89,30 @@ namespace CadastroPessoa
             set => sexo = value;
         }
 
+        private string date;
+        public string Date
+
+        {
+            get { return date; } 
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    value = value.Replace("/", "");
+
+                    if (value.Length == 8)
+                    {
+                        date = value.Insert(2, "/").Insert(5, "/");
+                    }
+                    else
+                    {
+                        date = "Formato inválido";
+                    }
+                }
+            }
+        }
+
         private string telefone;
         public string Telefone
 
@@ -120,6 +144,7 @@ namespace CadastroPessoa
             Console.WriteLine("Idade: " + this.Idade);
             Console.WriteLine("CPF: " + this.Cpf);
             Console.WriteLine("Telefone: " + this.Telefone);
+            Console.WriteLine("Data de Nascimento: " + this.Date);
             Console.WriteLine("Sexo: " + Sexo);
         }
     }
