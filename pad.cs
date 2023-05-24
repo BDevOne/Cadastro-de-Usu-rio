@@ -15,7 +15,7 @@ namespace CadastroPessoa
             this.Idade = 0;
             this.Cpf = " ";
             this.Sexo = " ";
-            this.Telefone = 0;
+            this.Telefone = " ";
         }
 
         public Pad(String nome, int idade, String cpf)
@@ -89,25 +89,29 @@ namespace CadastroPessoa
             set => sexo = value;
         }
 
-        private int telefone;
-        public int Telefone
+        private string telefone;
+        public string Telefone
 
         {
             get { return telefone; }
 
             set
             {
-                if (value >= 9)
+                if (!string.IsNullOrEmpty(value))
                 {
-                    telefone = value;
-                }
-                else
-                {
-                    telefone = 0;
+                    if (value.Length == 9)
+                    {
+                        if (int.TryParse(value, out int parsedTelefone))
+                        {
+                            telefone = parsedTelefone.ToString();
+                        }
+                    }
+                    else
+                    {
+                        telefone = "Telefone não cadastrado";
+                    }
                 }
             }
-       
-                
         }
 
         public void ExibirDados()
