@@ -6,15 +6,21 @@ Implementados - (Nome, idade, CPF e telefone)
 
 Leitura de dados dos usuários
 
-            Console.Write("Nome do usuário: \n");
-            p = new Pad();
-            p.Nome = Console.ReadLine();
+           Console.Write("Nome do 1 usuário: \n");
+            p1 = new Pad();
+            p1.Nome = Console.ReadLine();
+
             Console.Write("\nCPF do usuário: \n");
-            p.Cpf = Console.ReadLine();
+            p1.Cpf = Console.ReadLine();
+
             Console.Write("\nIdade do usuário: \n");
-            p.Idade = Convert.ToInt32(Console.ReadLine());
+            p1.Idade = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("\nTelefone do usuário: \n");
+            p1.Telefone = Convert.ToInt32(Console.ReadLine());
+
             Console.Write("\nSexo do usuário: \n");
-            p.Sexo = Console.ReadLine();
+            p1.Sexo = Console.ReadLine();
             
 Lógica do cadastro
 
