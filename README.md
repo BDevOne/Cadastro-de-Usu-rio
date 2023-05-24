@@ -41,6 +41,24 @@ Lógica do cadastro
                     pessoas[i].ExibirDados();
                 }
             }
+            
+            
+Melhoria aplicada no tratamento das informações do telefone
+
+           if (!string.IsNullOrEmpty(value))
+                {
+                    if (value.Length == 9)
+                    {
+                        if (int.TryParse(value, out int parsedTelefone))
+                        {
+                            telefone = parsedTelefone.ToString();
+                        }
+                    }
+                    else
+                    {
+                        telefone = "Telefone não cadastrado";
+                    }
+                }
 
 # Itens a implementar 
 
