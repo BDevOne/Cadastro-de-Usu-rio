@@ -1,6 +1,6 @@
 # Cadastro de usuario
 
-Implementados - (Nome, idade, CPF e telefone)
+Implementados - Nome - CPF - Telefone - Data de Nascimento - Idade - Sexo
  
 
 
