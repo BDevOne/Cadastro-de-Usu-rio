@@ -3,25 +3,29 @@
 Implementados - Nome - CPF - Telefone - Data de Nascimento - Idade - Sexo
  
 
+Melhoria realizada no cadastro do usuário
 
-Leitura de dados dos usuários
-
-           Console.Write("Nome do 1 usuário: \n");
-            p1 = new Pad();
-            p1.Nome = Console.ReadLine();
+           var cadastro = new Pad();
+     
+            Console.Write("Nome do usuário: \n");
+            cadastro.Nome = Console.ReadLine();
 
             Console.Write("\nCPF do usuário: \n");
-            p1.Cpf = Console.ReadLine();
+            cadastro.Cpf = Console.ReadLine();
 
             Console.Write("\nIdade do usuário: \n");
-            p1.Idade = Convert.ToInt32(Console.ReadLine());
+            cadastro.Idade = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("\nTelefone do usuário: \n");
-            p1.Telefone = Convert.ToInt32(Console.ReadLine());
+            cadastro.Telefone = (Console.ReadLine());
 
-            Console.Write("\nSexo do usuário: \n");
-            p1.Sexo = Console.ReadLine();
-            
+            Console.Write("\nData de nascimento do usuário: \n");
+            cadastro.Data = (Console.ReadLine());
+
+            Console.Write("\nSexo do usuário:  M / F? \n");
+            cadastro.Sexo = Console.ReadLine();
+                  
+
 Lógica do cadastro
 
             Console.WriteLine("\n#Dados dos usuários#\n");
@@ -59,8 +63,7 @@ Melhoria aplicada no tratamento das informações do telefone
                         telefone = "Telefone não cadastrado";
                     }
                 }
-                
-                
+                              
 
 Melhoria aplicada no tratamento de data de nascimento 
 
@@ -77,6 +80,33 @@ Melhoria aplicada no tratamento de data de nascimento
                         date = "Formato inválido";
                     }
                 }
+                
+
+Melhoria aplicada no tratamento da seleção do Sexo do usuário
+
+            if (!string.IsNullOrEmpty(value))
+                {
+                    switch (value.ToUpper())
+                    {
+                        case "M":
+                            sexo = "Masculino";
+                            break;
+                        case "m":
+                            sexo = "Masculino";
+                            break;
+                        case "F":
+                            sexo = "Feminino";
+                            break;
+                        case "f":
+                            sexo = "Feminino";
+                            break;
+                        default:
+                            sexo = "Inválido";
+                            break;
+                    }
+                }
+
+A atualização contempla a seleção do sexo do usuário, agora sendo realizada uma validação para verificar o sexo a partir da letra inicial.
 
 # Itens a implementar 
 
