@@ -6,31 +6,9 @@ Implementados - Nome - CPF - Telefone - Data de Nascimento - Idade - Sexo
 Melhoria realizada no cadastro do usuário
 
            var cadastro = new Pad();
-     
-            Console.Write("Nome do usuário: \n");
-            cadastro.Nome = Console.ReadLine();
-
-            Console.Write("\nCPF do usuário: \n");
-            cadastro.Cpf = Console.ReadLine();
-
-            Console.Write("\nIdade do usuário: \n");
-            cadastro.Idade = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("\nTelefone do usuário: \n");
-            cadastro.Telefone = (Console.ReadLine());
-
-            Console.Write("\nData de nascimento do usuário: \n");
-            cadastro.Data = (Console.ReadLine());
-
-            Console.Write("\nSexo do usuário:  M / F? \n");
-            cadastro.Sexo = Console.ReadLine();
-                  
+           
 
 Lógica do cadastro
-
-            Console.WriteLine("\n#Dados dos usuários#\n");
-
-            Pad[] pessoas = { p1, p2, p3 };
 
             for (int i = 0; i < pessoas.Length; i++)
             {
