@@ -16,10 +16,10 @@ namespace CadastroPessoa
             this.Cpf = " ";
             this.Sexo = " ";
             this.Telefone = " ";
-            this.Date = " ";
+            this.Data = " ";
         }
 
-        public Pad(String nome, int idade, String cpf)
+        public Pad(String nome, int idade, string cpf)
         {
             this.Nome = "nome";
             this.Idade = idade;
@@ -55,8 +55,8 @@ namespace CadastroPessoa
 
         }
 
-        private String cpf; 
-        public String Cpf 
+        private string cpf; 
+        public string Cpf 
 
         {
             get { return cpf; }
@@ -86,14 +86,38 @@ namespace CadastroPessoa
         public string Sexo
         {
             get { return sexo; }
-            set => sexo = value;
+
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    switch (value.ToUpper())
+                    {
+                        case "M":
+                            sexo = "Masculino";
+                            break;
+                        case "m":
+                            sexo = "Masculino";
+                            break;
+                        case "F":
+                            sexo = "Feminino";
+                            break;
+                        case "f":
+                            sexo = "Feminino";
+                            break;
+                        default:
+                            sexo = "Inválido";
+                            break;
+                    }
+                }
+            }
         }
 
-        private string date;
-        public string Date
+        private string data;
+        public string Data
 
         {
-            get { return date; } 
+            get { return data; } 
 
             set
             {
@@ -103,11 +127,11 @@ namespace CadastroPessoa
 
                     if (value.Length == 8)
                     {
-                        date = value.Insert(2, "/").Insert(5, "/");
+                        data = value.Insert(2, "/").Insert(5, "/");
                     }
                     else
                     {
-                        date = "Formato inválido";
+                        data = "Formato inválido";
                     }
                 }
             }
@@ -123,6 +147,7 @@ namespace CadastroPessoa
             {
                 if (!string.IsNullOrEmpty(value))
                 {
+
                     if (value.Length == 9)
                     {
                         if (int.TryParse(value, out int parsedTelefone))
@@ -144,7 +169,7 @@ namespace CadastroPessoa
             Console.WriteLine("Idade: " + this.Idade);
             Console.WriteLine("CPF: " + this.Cpf);
             Console.WriteLine("Telefone: " + this.Telefone);
-            Console.WriteLine("Data de Nascimento: " + this.Date);
+            Console.WriteLine("Data de Nascimento: " + this.Data);
             Console.WriteLine("Sexo: " + Sexo);
         }
     }
