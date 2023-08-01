@@ -96,17 +96,13 @@ namespace CadastroPessoa
                         case "M":
                             sexo = "Masculino";
                             break;
-                        case "m":
-                            sexo = "Masculino";
-                            break;
+                        
                         case "F":
                             sexo = "Feminino";
                             break;
-                        case "f":
-                            sexo = "Feminino";
-                            break;
+                        
                         default:
-                            sexo = "Inválido";
+                            sexo = "Formato inválido";
                             break;
                     }
                 }
@@ -115,25 +111,19 @@ namespace CadastroPessoa
 
         private string data;
         public string Data
-
         {
             get { return data; } 
 
             set
             {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    value = value.Replace("/", "");
-
-                    if (value.Length == 8)
-                    {
-                        data = value.Insert(2, "/").Insert(5, "/");
-                    }
-                    else
-                    {
-                        data = "Formato inválido";
-                    }
-                }
+              if (!string.IsNullOrEmpty(value) && value.Length == 8)
+              {
+                    data = $"{value.Substring(0, 2)}/{value.Substring(2, 2)}/{value.Substring(4, 4)}";
+              }
+              else
+              {
+                    data = "Formato inválido";
+              }
             }
         }
 
