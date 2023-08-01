@@ -16,26 +16,28 @@ namespace CadastroPessoa
             Console.WriteLine("####Cadastro de usuário####\n");
 
             Console.WriteLine("\nInformações do usuário\n");
-          
-            Console.Write("Nome do usuário: \n");
+
+            // Leitura de dados usuário 1
+            Console.Write("Nome do usuário: ");
             cadastro.Nome = Console.ReadLine();
 
-            Console.Write("\nCPF do usuário: \n");
+            Console.Write("\nCPF do usuário: ");
             cadastro.Cpf = Console.ReadLine();
 
-            Console.Write("\nIdade do usuário: \n");
-            cadastro.Idade = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write("\nTelefone do usuário: \n");
-            cadastro.Telefone = (Console.ReadLine());
-
-            Console.Write("\nData de nascimento do usuário: \n");
+            Console.Write("\nData de nascimento do usuário: ");
             cadastro.Data = (Console.ReadLine());
 
-            Console.Write("\nSexo do usuário:  M / F? \n");
+            Console.Write("\nIdade do usuário: ");
+            cadastro.Idade = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("\nTelefone do usuário: ");
+            cadastro.Telefone = (Console.ReadLine());
+
+            Console.Write("\nSelecione o sexo do usuário  (M / F): ");
             cadastro.Sexo = Console.ReadLine();
 
-            Console.Clear(); 
+
+            Console.Clear(); // Limpa as informações do prompt 
 
             // Lógica do Cadastro - Idade
 
