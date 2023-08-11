@@ -37,7 +37,7 @@ namespace CadastroPessoa
             cadastro.Sexo = Console.ReadLine();
 
 
-            Console.Clear(); // Limpa as informações do prompt 
+            Console.Clear(); // Limpa as informações ao cadastrar usuário
 
             // Lógica do Cadastro - Idade
 
