@@ -19,14 +19,6 @@ namespace CadastroPessoa
             this.Data = " ";
         }
 
-        public Pad(String nome, int idade, string cpf)
-        {
-            this.Nome = "nome";
-            this.Idade = idade;
-            this.Cpf = cpf;
-            this.Telefone = telefone;
-        }
-
         // Propriedades
 
         private String nome;
@@ -116,14 +108,18 @@ namespace CadastroPessoa
 
             set
             {
-              if (!string.IsNullOrEmpty(value) && value.Length == 8)
+              if (!string.IsNullOrEmpty(value))
               {
+                if (value.Length == 8)
+                {
                     data = $"{value.Substring(0, 2)}/{value.Substring(2, 2)}/{value.Substring(4, 4)}";
-              }
-              else
-              {
+                } 
+                else 
+                {
                     data = "Formato inválido";
+                }
               }
+              
             }
         }
 
