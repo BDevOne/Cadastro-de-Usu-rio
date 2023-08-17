@@ -10,20 +10,32 @@ Melhoria realizada no cadastro do usuário
 
 Lógica do cadastro
 
+            Pad[] pessoas = { cadastro };
+
             for (int i = 0; i < pessoas.Length; i++)
             {
-                if (pessoas[i].Idade >= 18)
+                bool idadeVerificar = pessoas[i].Idade >= 18;
+                bool cpfVerificar = !string.IsNullOrEmpty(pessoas[i].Cpf) && pessoas[i].Cpf.Length >= 11;
+
+                if (idadeVerificar && cpfVerificar)
                 {
                     Console.WriteLine($"\nUsuário {i + 1} cadastrado \n");
                     pessoas[i].ExibirDados();
                 }
-                else
+                else // Melhoria --> add mensagem do por que não foi cadastrado 
                 {
-                    Console.WriteLine($"\nNão foi possível cadastrar usuário {i + 1} \n");
+                    Console.WriteLine($"\nNão foi possível cadastrar usuário  {i + 1} \n");
                     pessoas[i].ExibirDados();
+                    if (!idadeVerificar)
+                    {
+                        Console.WriteLine("\nIdade não permitida\n");
+                    }
+                    if (!cpfVerificar)
+                    {
+                        Console.WriteLine("\nCPF Inválido\n");
+                    }
                 }
-            }
-            
+           
             
 Melhoria aplicada no tratamento das informações do telefone
 
@@ -62,30 +74,44 @@ Melhoria aplicada no tratamento de data de nascimento
 
 Melhoria aplicada no tratamento da seleção do Sexo do usuário
 
-            if (!string.IsNullOrEmpty(value))
-                {
-                    switch (value.ToUpper())
-                    {
+            switch (value.ToUpper())
+            {
                         case "M":
                             sexo = "Masculino";
                             break;
-                        case "m":
-                            sexo = "Masculino";
-                            break;
+                        
                         case "F":
                             sexo = "Feminino";
                             break;
-                        case "f":
-                            sexo = "Feminino";
-                            break;
+                        
                         default:
-                            sexo = "Inválido";
+                            sexo = "Formato inválido";
                             break;
-                    }
-                }
+            }   
+                        
+Melhoria CPF
 
-A atualização contempla a seleção do sexo do usuário, agora sendo realizada uma validação para verificar o sexo a partir da letra inicial.
+            if (!string.IsNullOrEmpty(value))
+            {
+                // Remove formatação do CPF 
+                value = value.Replace(".", "").Replace("-", "");
+            }
+            else
+            {
+                cpf = "CPF inválido";
+            }
+                  
+# Updates 17/08/2023 
+
+Melhoria realizada na lógica do cadastro de usuário, podendo agora validar cadastro apartir do CPF informado. 
+
+Melhoria realizada na validação de cadastro do CPF.
+
+Melhoria realizada na seleção de gênero: 
+
+![image](https://github.com/BDevOne/Cadastro-de-Usuario/assets/115705346/5579b1ea-f1de-45fb-b3a1-ec858b98f841)
+
 
 # Itens a implementar 
 
-1. Data de nascimento - Pegando o cálculo pela Idade informada Andamento... 
+1. Data de nascimento - Pegando o cálculo pela Idade informada -- Em Andamento... 
