@@ -59,16 +59,11 @@ namespace CadastroPessoa
                 if (!string.IsNullOrEmpty(value))
                 {
                     // Remove formatação do CPF 
-                    value  = value.Replace(".", "").Replace("-", "");
-
-                    if (value.Length == 11)
-                    {
-                        cpf = value.Insert(3, ".").Insert(7, ".").Insert(11, "-");
-                    }
-                    else
-                    {
-                        cpf = "CPF inválido";
-                    }
+                    value = value.Replace(".", "").Replace("-", "");
+                }
+                else
+                {
+                    cpf = "CPF inválido";
                 }
                 
             }
@@ -151,7 +146,7 @@ namespace CadastroPessoa
 
         public void ExibirDados()
         {
-            Console.WriteLine("Nome: " + this.Nome);
+            Console.WriteLine("Nome: " + Nome);
             Console.WriteLine("Idade: " + this.Idade);
             Console.WriteLine("CPF: " + this.Cpf);
             Console.WriteLine("Telefone: " + this.Telefone);
