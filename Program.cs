@@ -25,13 +25,13 @@ namespace CadastroPessoa
             cadastro.Cpf = Console.ReadLine();
 
             Console.Write("\nData de nascimento do usuário: ");
-            cadastro.Data = (Console.ReadLine());
+            cadastro.Data = Console.ReadLine();
 
             Console.Write("\nIdade do usuário: ");
             cadastro.Idade = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("\nTelefone do usuário: ");
-            cadastro.Telefone = (Console.ReadLine());
+            cadastro.Telefone = Console.ReadLine();
 
             Console.Write("\nSelecione o sexo do usuário  (M / F): ");
             cadastro.Sexo = Console.ReadLine();
@@ -39,15 +39,18 @@ namespace CadastroPessoa
 
             Console.Clear(); // Limpa as informações ao cadastrar usuário
 
-            // Lógica do Cadastro - Idade
+            // Lógica do Cadastro
 
-            Console.WriteLine("\n#Dados do usuário cadastrado#\n");
+            Console.WriteLine("\n#Dados Cadastro#\n");
 
             Pad[] pessoas = { cadastro };
 
             for (int i = 0; i < pessoas.Length; i++)
             {
-                if (pessoas[i].Idade >= 18)
+                bool idadeVerificar = pessoas[i].Idade >= 18;
+                bool cpfVerificar = !string.IsNullOrEmpty(pessoas[i].Cpf) && pessoas[i].Cpf.Length >= 11;
+
+                if (idadeVerificar && cpfVerificar)
                 {
                     Console.WriteLine($"\nUsuário {i + 1} cadastrado \n");
                     pessoas[i].ExibirDados();
@@ -56,10 +59,18 @@ namespace CadastroPessoa
                 {
                     Console.WriteLine($"\nNão foi possível cadastrar usuário  {i + 1} \n");
                     pessoas[i].ExibirDados();
+                    if (!idadeVerificar)
+                    {
+                        Console.WriteLine("\nIdade não permitida\n");
+                    }
+                    if (!cpfVerificar)
+                    {
+                        Console.WriteLine("\nCPF Inválido\n");
+                    }
                 }
                 
             }
-
+            
             Console.ReadLine();
         }
     }
