@@ -6,7 +6,7 @@ Implementados - Nome - CPF - Telefone - Data de Nascimento - Idade - Sexo
 Melhoria realizada no cadastro do usuário
 
            var cadastro = new Pad();
-           
+    
 
 Lógica do cadastro
 
@@ -15,7 +15,7 @@ Lógica do cadastro
             for (int i = 0; i < pessoas.Length; i++)
             {
                 bool idadeVerificar = pessoas[i].Idade >= 18;
-                bool cpfVerificar = !string.IsNullOrEmpty(pessoas[i].Cpf) && pessoas[i].Cpf.Length >= 11;
+                bool cpfVerificar = !string.IsNullOrEmpty(pessoas[i].Cpf);
 
                 if (idadeVerificar && cpfVerificar)
                 {
@@ -28,7 +28,7 @@ Lógica do cadastro
                     pessoas[i].ExibirDados();
                     if (!idadeVerificar)
                     {
-                        Console.WriteLine("\nIdade não permitida\n");
+                        Console.WriteLine("\nIdade não permitida");
                     }
                     if (!cpfVerificar)
                     {
@@ -87,19 +87,24 @@ Melhoria aplicada no tratamento da seleção do Sexo do usuário
                         default:
                             sexo = "Formato inválido";
                             break;
-            }   
+            }  
+            
                         
 Melhoria CPF
 
             if (!string.IsNullOrEmpty(value))
-            {
-                // Remove formatação do CPF 
-                value = value.Replace(".", "").Replace("-", "");
-            }
-            else
-            {
-                cpf = "CPF inválido";
-            }
+                {
+                    value  = value.Replace(".", "").Replace("-", "");
+
+                    if (value.Length == 11)
+                    {
+                        cpf = value.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+                    }
+                    else
+                    {
+                        cpf = "CPF inválido";
+                    }
+                }
                   
 # Updates 17/08/2023 
 
@@ -114,4 +119,4 @@ Melhoria realizada na seleção de gênero:
 
 # Itens a implementar 
 
-1. Data de nascimento - Pegando o cálculo pela Idade informada -- Em Andamento... 
+1. Data de nascimento - Pegando o cálculo pela Idade informada -- Em Andamento...
