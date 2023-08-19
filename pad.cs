@@ -60,12 +60,16 @@ namespace CadastroPessoa
                 {
                     // Remove formatação do CPF 
                     value = value.Replace(".", "").Replace("-", "");
+
+                    if (value.Length == 11)
+                    {
+                        cpf = value.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+                    }
+                    else
+                    {
+                        cpf = "CPF inválido";
+                    }
                 }
-                else
-                {
-                    cpf = "CPF inválido";
-                }
-                
             }
         }
 
