@@ -48,7 +48,7 @@ namespace CadastroPessoa
             for (int i = 0; i < pessoas.Length; i++)
             {
                 bool idadeVerificar = pessoas[i].Idade >= 18;
-                bool cpfVerificar = !string.IsNullOrEmpty(pessoas[i].Cpf) && pessoas[i].Cpf.Length >= 11;
+                bool cpfVerificar = !string.IsNullOrEmpty(pessoas[i].Cpf);
 
                 if (idadeVerificar && cpfVerificar)
                 {
@@ -61,7 +61,7 @@ namespace CadastroPessoa
                     pessoas[i].ExibirDados();
                     if (!idadeVerificar)
                     {
-                        Console.WriteLine("\nIdade não permitida\n");
+                        Console.WriteLine("\nIdade não permitida");
                     }
                     if (!cpfVerificar)
                     {
@@ -70,7 +70,7 @@ namespace CadastroPessoa
                 }
                 
             }
-            
+
             Console.ReadLine();
         }
     }
