@@ -117,6 +117,10 @@ Melhoria realizada na seleção de gênero:
 ![image](https://github.com/BDevOne/Cadastro-de-Usuario/assets/115705346/5579b1ea-f1de-45fb-b3a1-ec858b98f841)
 
 
+# Correções 19/08/2023 
+
+Correção aplicada seção de cadastro de CPF, que abordava duas validações. A primeira validava a presença dos 11 dígitos, aplicando a máscara adequada. A segunda, por sua vez, conferia se havia exatamente 11 dígitos, desconsiderando qualquer máscara.
+
 # Itens a implementar 
 
-1. Data de nascimento - Pegando o cálculo pela Idade informada -- Em Andamento...
+1. Idade - Pegando a partir data de nascimento informada -- Em Andamento...
