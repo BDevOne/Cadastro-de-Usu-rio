@@ -8,18 +8,6 @@ namespace CadastroPessoa
 {
     public class Pad
     {
-        // Construtores
-        public Pad()
-        {
-            this.Nome = " ";
-            this.Idade = 0;
-            this.Cpf = " ";
-            this.Sexo = " ";
-            this.Telefone = " ";
-            this.Data = " ";
-        }
-
-        // Propriedades
 
         private String nome;
         public String Nome
@@ -47,8 +35,8 @@ namespace CadastroPessoa
 
         }
 
-        private string cpf; 
-        public string Cpf 
+        private String cpf; 
+        public String Cpf 
 
         {
             get { return cpf; }
@@ -65,10 +53,10 @@ namespace CadastroPessoa
                     {
                         cpf = value.Insert(3, ".").Insert(7, ".").Insert(11, "-");
                     }
-                    else
-                    {
-                        cpf = "CPF inválido";
-                    }
+                }
+                else
+                {
+                    cpf = "CPF Inválido";
                 }
             }
         }
@@ -148,14 +136,24 @@ namespace CadastroPessoa
             }
         }
 
+        private string email;
+        public string Email 
+
+        { 
+            get { return email; }
+            set { email = value; }
+        }
+
         public void ExibirDados()
         {
             Console.WriteLine("Nome: " + Nome);
             Console.WriteLine("Idade: " + this.Idade);
-            Console.WriteLine("CPF: " + this.Cpf);
+            Console.WriteLine("CPF: " + Cpf);
             Console.WriteLine("Telefone: " + this.Telefone);
             Console.WriteLine("Data de Nascimento: " + this.Data);
             Console.WriteLine("Sexo: " + Sexo);
+            Console.WriteLine("E-mail: " + Email);
+
         }
     }
 }
