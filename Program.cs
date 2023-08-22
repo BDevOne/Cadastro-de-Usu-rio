@@ -15,9 +15,9 @@ namespace CadastroPessoa
 
             Console.WriteLine("####Cadastro de usuário####\n");
 
-            Console.WriteLine("\nInformações do usuário\n");
+            Console.WriteLine("\nDados Obrigátorios: Idade/CPF\n\n");
 
-            // Leitura de dados usuário 1
+            // Leitura de dados usuário
             Console.Write("Nome do usuário: ");
             cadastro.Nome = Console.ReadLine();
 
@@ -36,40 +36,38 @@ namespace CadastroPessoa
             Console.Write("\nSelecione o sexo do usuário  (M / F): ");
             cadastro.Sexo = Console.ReadLine();
 
+            Console.Write("\nDigite seu e-mail:");
+            cadastro.Email = Console.ReadLine();
+            
 
-            Console.Clear(); // Limpa as informações ao cadastrar usuário
+            Console.Clear();
 
-            // Lógica do Cadastro
-
+            // Cadastro
             Console.WriteLine("\n#Dados Cadastro#\n");
 
-            Pad[] pessoas = { cadastro };
+            var pessoas = cadastro;
 
-            for (int i = 0; i < pessoas.Length; i++)
-            {
-                bool idadeVerificar = pessoas[i].Idade >= 18;
-                bool cpfVerificar = !string.IsNullOrEmpty(pessoas[i].Cpf);
+                bool idadeVerificar = pessoas.Idade >= 18;
+                bool cpfVerificar = !string.IsNullOrEmpty(pessoas.Cpf);
 
                 if (idadeVerificar && cpfVerificar)
                 {
-                    Console.WriteLine($"\nUsuário {i + 1} cadastrado \n");
-                    pessoas[i].ExibirDados();
+                    Console.WriteLine($"\nUsuário {cadastro.Nome} cadastrado\n");
+                    pessoas.ExibirDados();
                 }
-                else // Melhoria --> add mensagem do por que não foi cadastrado 
+                else // Melhoria --> add mensagem com erro de cadastro
                 {
-                    Console.WriteLine($"\nNão foi possível cadastrar usuário  {i + 1} \n");
-                    pessoas[i].ExibirDados();
+                    Console.WriteLine($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n");
+                    pessoas.ExibirDados();
                     if (!idadeVerificar)
                     {
-                        Console.WriteLine("\nIdade não permitida");
+                        Console.WriteLine($"\nIdade informada não Permitida: {cadastro.Idade}.");
                     }
                     if (!cpfVerificar)
                     {
-                        Console.WriteLine("\nCPF Inválido\n");
+                        Console.WriteLine($"\nCPF Inválido\n");
                     }
                 }
-                
-            }
 
             Console.ReadLine();
         }
