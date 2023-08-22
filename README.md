@@ -8,31 +8,29 @@ Melhoria realizada no cadastro do usuário
            var cadastro = new Pad();
     
 
-Lógica do cadastro
+Melhoria implementada na Lógica do cadastro
 
-            Pad[] pessoas = { cadastro };
+            var pessoas = cadastro;
 
-            for (int i = 0; i < pessoas.Length; i++)
-            {
-                bool idadeVerificar = pessoas[i].Idade >= 18;
-                bool cpfVerificar = !string.IsNullOrEmpty(pessoas[i].Cpf);
+                bool idadeVerificar = pessoas.Idade >= 18;
+                bool cpfVerificar = !string.IsNullOrEmpty(pessoas.Cpf);
 
                 if (idadeVerificar && cpfVerificar)
                 {
-                    Console.WriteLine($"\nUsuário {i + 1} cadastrado \n");
-                    pessoas[i].ExibirDados();
+                    Console.WriteLine($"\nUsuário {cadastro.Nome} cadastrado\n");
+                    pessoas.ExibirDados();
                 }
-                else // Melhoria --> add mensagem do por que não foi cadastrado 
+                else // Melhoria --> add mensagem com erro de cadastro
                 {
-                    Console.WriteLine($"\nNão foi possível cadastrar usuário  {i + 1} \n");
-                    pessoas[i].ExibirDados();
+                    Console.WriteLine($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n");
+                    pessoas.ExibirDados();
                     if (!idadeVerificar)
                     {
-                        Console.WriteLine("\nIdade não permitida");
+                        Console.WriteLine($"\nIdade informada não Permitida: {cadastro.Idade}.");
                     }
                     if (!cpfVerificar)
                     {
-                        Console.WriteLine("\nCPF Inválido\n");
+                        Console.WriteLine($"\nCPF Inválido\n");
                     }
                 }
            
@@ -120,6 +118,12 @@ Melhoria realizada na seleção de gênero:
 # Correções 19/08/2023 
 
 Correção aplicada seção de cadastro de CPF, que abordava duas validações. A primeira validava a presença dos 11 dígitos, aplicando a máscara adequada. A segunda, por sua vez, conferia se havia exatamente 11 dígitos, desconsiderando qualquer máscara.
+
+# Update 22/08/2023
+
+Melhoria no cadastro do usuário.
+
+Adicionado E-mail.
 
 # Itens a implementar 
 
