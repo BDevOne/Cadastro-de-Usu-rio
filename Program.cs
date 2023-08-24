@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace CadastroPessoa
 {
@@ -36,8 +37,9 @@ namespace CadastroPessoa
             Console.Write("\nSelecione o sexo do usuário  (M / F): ");
             cadastro.Sexo = Console.ReadLine();
 
-            Console.Write("\nDigite seu e-mail:");
-            cadastro.Email = Console.ReadLine();
+            // Implementar cadastro de E-mail
+            // Console.Write("\nDigite seu e-mail:");
+            // cadastro.Email = Console.ReadLine();
             
 
             Console.Clear();
@@ -52,20 +54,20 @@ namespace CadastroPessoa
 
                 if (idadeVerificar && cpfVerificar)
                 {
-                    Console.WriteLine($"\nUsuário {cadastro.Nome} cadastrado\n");
+                    Console.Write($"\nUsuário {cadastro.Nome} cadastrado\n");
                     pessoas.ExibirDados();
                 }
                 else // Melhoria --> add mensagem com erro de cadastro
                 {
-                    Console.WriteLine($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n");
+                    Console.Write($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n");
                     pessoas.ExibirDados();
                     if (!idadeVerificar)
                     {
-                        Console.WriteLine($"\nIdade informada não Permitida: {cadastro.Idade}.");
+                        Console.Write($"\nIdade informada não Permitida: {cadastro.Idade}.");
                     }
                     if (!cpfVerificar)
                     {
-                        Console.WriteLine($"\nCPF Inválido\n");
+                        Console.Write($"\nCPF Inválido\n");
                     }
                 }
 
