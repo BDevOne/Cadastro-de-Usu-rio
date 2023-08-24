@@ -3,18 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace CadastroPessoa
 {
     public class Pad
     {
-
-        private String nome;
-        public String Nome
-        {
-            get { return nome; }
-            set { nome = value; }
-        }
+        public string Nome { get; set; }
 
         private int idade;
         public int Idade
@@ -35,9 +30,8 @@ namespace CadastroPessoa
 
         }
 
-        private String cpf; 
-        public String Cpf 
-
+        private string cpf;
+        public string Cpf
         {
             get { return cpf; }
 
@@ -112,7 +106,6 @@ namespace CadastroPessoa
 
         private string telefone;
         public string Telefone
-
         {
             get { return telefone; }
 
@@ -134,25 +127,20 @@ namespace CadastroPessoa
                     }
                 }
             }
-        }
+        } 
 
-        private string email;
-        public string Email 
-
-        { 
-            get { return email; }
-            set { email = value; }
-        }
-
+        // private static int NumberId = 1;
+        // public int Id { get; }
+        
         public void ExibirDados()
         {
             Console.WriteLine("Nome: " + Nome);
             Console.WriteLine("Idade: " + this.Idade);
-            Console.WriteLine("CPF: " + Cpf);
+            Console.WriteLine("CPF: " + this.Cpf);
             Console.WriteLine("Telefone: " + this.Telefone);
             Console.WriteLine("Data de Nascimento: " + this.Data);
             Console.WriteLine("Sexo: " + Sexo);
-            Console.WriteLine("E-mail: " + Email);
+            // Console.WriteLine("E-mail: " + Email);
 
         }
     }
