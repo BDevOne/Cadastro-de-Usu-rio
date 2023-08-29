@@ -14,11 +14,12 @@ namespace CadastroPessoa
 
             var cadastro = new Pad();
 
+            // bool seguirCad = true; -- Implemantar cadastros multiplos
+
             Console.WriteLine("####Cadastro de usuário####\n");
 
             Console.WriteLine("\nDados Obrigátorios: Idade/CPF\n\n");
 
-            // Leitura de dados usuário
             Console.Write("Nome do usuário: ");
             cadastro.Nome = Console.ReadLine();
 
@@ -45,7 +46,7 @@ namespace CadastroPessoa
             Console.Clear();
 
             // Cadastro
-            Console.WriteLine("\n#Dados Cadastro#\n");
+            Console.WriteLine("\n#Dados de Cadastro#\n");
 
             var pessoas = cadastro;
 
@@ -54,12 +55,12 @@ namespace CadastroPessoa
 
                 if (idadeVerificar && cpfVerificar)
                 {
-                    Console.Write($"\nUsuário {cadastro.Nome} cadastrado\n");
+                    Console.Write($"\nUsuário {cadastro.Nome} Cadastrado\n\n");
                     pessoas.ExibirDados();
                 }
                 else // Melhoria --> add mensagem com erro de cadastro
                 {
-                    Console.Write($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n");
+                    Console.Write($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n\n");
                     pessoas.ExibirDados();
                     if (!idadeVerificar)
                     {
