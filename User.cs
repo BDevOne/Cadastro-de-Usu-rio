@@ -1,15 +1,15 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
+using System.Threading;
+using System.Runtime.InteropServices;
+using System.Text.Encodings;
 
 namespace CadastroPessoa
 {
-    public class Pad
+    public class Users
     {
-        public Pad()
+        public Users()
         {
             this.Nome = " ";
             this.Idade = 0;
@@ -19,41 +19,36 @@ namespace CadastroPessoa
             this.Data = " ";
         }
 
-        public string Nome { get; set; }
-        
+        public string? Nome { get; set; }
         public int Idade { get; set; }
 
-        private string cpf;
-        public string Cpf
+        private string? cpf;
+        public string? Cpf
         {
             get { return cpf; }
-
-
             set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
-                    // Remove formatação do CPF 
                     value = value.Replace(".", "").Replace("-", "");
                     
                     if (value.Length == 11)
                     {
                        cpf = value.Insert(3, ".").Insert(7, ".").Insert(11, "-");
                     }
-                }
-                else
-                {
-                    cpf = "Error";
-                }
+                    else 
+                    {
+                        cpf = null;
+                    }
+                }   
             }
         }
 
-        private string sexo;
-        public string Sexo
+        private string? sexo;
+        public string? Sexo
         {
             get { return sexo; }
-
-            set
+            set 
             {
                 if (!string.IsNullOrEmpty(value))
                 {
@@ -62,51 +57,45 @@ namespace CadastroPessoa
                         case "M":
                             sexo = "Masculino";
                             break;
-                        
                         case "F":
                             sexo = "Feminino";
                             break;
-                        
                         default:
-                            sexo = "Formato inválido";
-                            break;
+                            sexo = "Formato Inválido";
+                            break;    
                     }
                 }
             }
         }
 
-        private string data;
-        public string Data
+        private string? data;
+        public string? Data
         {
-            get { return data; } 
-
-            set
-            {
-              if (!string.IsNullOrEmpty(value))
-              {
-                if (value.Length == 8)
-                {
-                    data = $"{value.Substring(0, 2)}/{value.Substring(2, 2)}/{value.Substring(4, 4)}";
-                } 
-                else 
-                {
-                    data = "Formato inválido";
-                }
-              }
-              
-            }
-        }
-
-        private string telefone;
-        public string Telefone
-        {
-            get { return telefone; }
-
+            get { return sexo; }
             set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
+                    if (value.Length == 8)
+                    {
+                        data = $"{value.Substring(0, 2)}/{value.Substring(2, 2)}/{value.Substring(4, 4)}";
+                    }
+                    else
+                    {
+                        data = "Formato Inválido";
+                    }
+                }
+            }
+        }
 
+        private string? telefone;
+        public string? Telefone
+        {
+            get { return telefone; }
+            set 
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
                     if (value.Length == 9)
                     {
                         if (int.TryParse(value, out int parsedTelefone))
@@ -114,27 +103,22 @@ namespace CadastroPessoa
                             telefone = parsedTelefone.ToString();
                         }
                     }
-                    else
+                    else 
                     {
-                        telefone = "Telefone não cadastrado";
+                        telefone = $"Telefone não cadastrado.";
                     }
                 }
             }
-        } 
-
-        // private static int NumberId = 1;
-        // public int Id { get; }
+        }
         
-        public void ExibirDados()
+        public void exibirDados()
         {
             Console.WriteLine("Nome: " + Nome);
-            Console.WriteLine("Idade: " + this.Idade);
-            Console.WriteLine("CPF: " + this.Cpf);
-            Console.WriteLine("Data de Nascimento: " + this.Data);
-            Console.WriteLine("Telefone: " + this.Telefone);
+            Console.WriteLine("Idade: " + Idade);
+            Console.WriteLine("CPF: " + Cpf);
+            Console.WriteLine("Data de Nascimento: " + Data);
             Console.WriteLine("Sexo: " + Sexo);
-            // Console.WriteLine("E-mail: " + Email);
-
+            Console.WriteLine("Telefone: " + Telefone);
         }
     }
 }
