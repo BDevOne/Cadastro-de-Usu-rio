@@ -9,16 +9,19 @@ namespace CadastroPessoa
 {
     public class Users
     {
+        #region Constructors
         public Users()
         {
-            this.Nome = " ";
-            this.Idade = 0;
-            this.Cpf = " ";
-            this.Sexo = " ";
-            this.Telefone = " ";
-            this.Data = " ";
+            Nome = " ";
+            Idade = 0;
+            Cpf = " ";
+            Sexo = " ";
+            Telefone = " ";
+            Data = " ";
         }
-
+        
+        #endregion
+         
         public string? Nome { get; set; }
         public int Idade { get; set; }
 
@@ -32,14 +35,15 @@ namespace CadastroPessoa
                 {
                     value = value.Replace(".", "").Replace("-", "");
                     
-                    if (value.Length == 11)
+                    while (value.Length == 11)
                     {
-                       cpf = value.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+                       cpf = value.Insert(3, ".").Insert(7, ".").Insert(11, "-"); 
+                       break;
                     }
-                    else 
-                    {
-                        cpf = null;
-                    }
+                }
+                else 
+                {
+                    cpf = null;
                 }   
             }
         }
@@ -71,7 +75,7 @@ namespace CadastroPessoa
         private string? data;
         public string? Data
         {
-            get { return sexo; }
+            get { return data; }
             set
             {
                 if (!string.IsNullOrEmpty(value))
@@ -111,11 +115,11 @@ namespace CadastroPessoa
             }
         }
         
-        public void exibirDados()
+        public void ExibirDados()
         {
             Console.WriteLine("Nome: " + Nome);
             Console.WriteLine("Idade: " + Idade);
-            Console.WriteLine("CPF: " + Cpf);
+            Console.WriteLine($"CPF: {Cpf}");
             Console.WriteLine("Data de Nascimento: " + Data);
             Console.WriteLine("Sexo: " + Sexo);
             Console.WriteLine("Telefone: " + Telefone);
