@@ -15,6 +15,8 @@ namespace CadastroPessoa
            var cadastro = new Users();
            var cadUser = cadastro;
 
+           // bool seguirCad = true; -- Implemantar cadastros multiplos
+
             Console.WriteLine("####Cadastro de usuário####\n");
 
             Console.WriteLine("\nDados Obrigátorios: Idade/CPF\n\n");
@@ -25,17 +27,17 @@ namespace CadastroPessoa
             Console.Write("\nCPF do usuário: ");
             cadastro.Cpf = Console.ReadLine();
 
-            Console.Write("\nData de nascimento do usuário: ");
-            cadastro.Data = Console.ReadLine();
+            // Console.Write("\nData de nascimento do usuário: ");
+            // cadastro.Data = Console.ReadLine();
 
             Console.Write("\nIdade do usuário: ");
             cadastro.Idade = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("\nTelefone do usuário: ");
-            cadastro.Telefone = Console.ReadLine();
+            // Console.Write("\nTelefone do usuário: ");
+            // cadastro.Telefone = Console.ReadLine();
 
-            Console.Write("\nSelecione o sexo do usuário  (M / F): ");
-            cadastro.Sexo = Console.ReadLine();
+            // Console.Write("\nSelecione o sexo do usuário  (M / F): ");
+            // cadastro.Sexo = Console.ReadLine();
 
             Console.Clear();
 
@@ -47,12 +49,12 @@ namespace CadastroPessoa
             if (idadeVerificar && cpfVerificar)
             {
                 Console.WriteLine($"\nUsuário {cadastro.Nome} Cadastrado\n");
-                cadUser.exibirDados();
+                cadUser.ExibirDados();
             }
             else 
             {
                 Console.WriteLine($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n");
-                cadUser.exibirDados();
+                cadUser.ExibirDados();
 
                 if (!idadeVerificar)
                 {
