@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Text.RegularExpressions;
+using System.Threading;
+using System.Runtime.InteropServices;
+using System.Text.Encodings;
 
 namespace CadastroPessoa
 {
@@ -12,9 +12,8 @@ namespace CadastroPessoa
         static void Main(string[] args)
         {
 
-            var cadastro = new Pad();
-
-            // bool seguirCad = true; -- Implemantar cadastros multiplos
+           var cadastro = new Users();
+           var cadUser = cadastro;
 
             Console.WriteLine("####Cadastro de usuário####\n");
 
@@ -38,40 +37,33 @@ namespace CadastroPessoa
             Console.Write("\nSelecione o sexo do usuário  (M / F): ");
             cadastro.Sexo = Console.ReadLine();
 
-            // Implementar cadastro de E-mail
-            // Console.Write("\nDigite seu e-mail:");
-            // cadastro.Email = Console.ReadLine();
-            
-
             Console.Clear();
 
-            // Cadastro
-            Console.WriteLine("\n#Dados de Cadastro#\n");
+            Console.WriteLine("\n#Dados de Cadastro\n");
 
-            var pessoas = cadastro;
+            var idadeVerificar = cadUser.Idade >= 18; 
+            var cpfVerificar = cadUser.Cpf != null;
 
-                bool idadeVerificar = pessoas.Idade >= 18;
-                bool cpfVerificar = !string.IsNullOrEmpty(pessoas.Cpf);
+            if (idadeVerificar && cpfVerificar)
+            {
+                Console.WriteLine($"\nUsuário {cadastro.Nome} Cadastrado\n");
+                cadUser.exibirDados();
+            }
+            else 
+            {
+                Console.WriteLine($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n");
+                cadUser.exibirDados();
 
-                if (idadeVerificar && cpfVerificar)
+                if (!idadeVerificar)
                 {
-                    Console.Write($"\nUsuário {cadastro.Nome} Cadastrado\n\n");
-                    pessoas.ExibirDados();
+                    Console.WriteLine($"\nIdade não permitida: {cadastro.Idade}");
                 }
-                else // Melhoria --> add mensagem com erro de cadastro
+                if (!cpfVerificar)
                 {
-                    Console.Write($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n\n");
-                    pessoas.ExibirDados();
-                    if (!idadeVerificar)
-                    {
-                        Console.Write($"\nIdade informada não Permitida: {cadastro.Idade}.");
-                    }
-                    if (!cpfVerificar)
-                    {
-                        Console.Write($"\nCPF Inválido\n");
-                    }
+                    Console.WriteLine($"\nCPF Inválido");
                 }
-
+            }
+            
             Console.ReadLine();
         }
     }
