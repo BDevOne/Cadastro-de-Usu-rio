@@ -1,38 +1,29 @@
 # Cadastro de usuario
 
-Implementados - Nome - CPF - Telefone - Data de Nascimento - Idade - Sexo
- 
-
-Melhoria realizada no cadastro do usuário
-
-           var cadastro = new Pad();
-    
-
 Melhoria implementada na Lógica do cadastro
 
-            var pessoas = cadastro;
+            var idadeVerificar = cadUser.Idade >= 18; 
+            var cpfVerificar = cadUser.Cpf != null;
 
-                bool idadeVerificar = pessoas.Idade >= 18;
-                bool cpfVerificar = !string.IsNullOrEmpty(pessoas.Cpf);
+            if (idadeVerificar && cpfVerificar)
+            {
+                Console.WriteLine($"\nUsuário {cadastro.Nome} Cadastrado\n");
+                cadUser.exibirDados();
+            }
+            else 
+            {
+                Console.WriteLine($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n");
+                cadUser.exibirDados();
 
-                if (idadeVerificar && cpfVerificar)
+                if (!idadeVerificar)
                 {
-                    Console.WriteLine($"\nUsuário {cadastro.Nome} cadastrado\n");
-                    pessoas.ExibirDados();
+                    Console.WriteLine($"\nIdade não permitida: {cadastro.Idade}");
                 }
-                else // Melhoria --> add mensagem com erro de cadastro
+                if (!cpfVerificar)
                 {
-                    Console.WriteLine($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n");
-                    pessoas.ExibirDados();
-                    if (!idadeVerificar)
-                    {
-                        Console.WriteLine($"\nIdade informada não Permitida: {cadastro.Idade}.");
-                    }
-                    if (!cpfVerificar)
-                    {
-                        Console.WriteLine($"\nCPF Inválido\n");
-                    }
+                    Console.WriteLine($"\nCPF Inválido");
                 }
+            }
            
             
 Melhoria aplicada no tratamento das informações do telefone
@@ -57,15 +48,13 @@ Melhoria aplicada no tratamento de data de nascimento
 
             if (!string.IsNullOrEmpty(value))
                 {
-                    value = value.Replace("/", "");
-
                     if (value.Length == 8)
                     {
-                        date = value.Insert(2, "/").Insert(5, "/");
+                        data = $"{value.Substring(0, 2)}/{value.Substring(2, 2)}/{value.Substring(4, 4)}";
                     }
                     else
                     {
-                        date = "Formato inválido";
+                        data = "Formato Inválido";
                     }
                 }
                 
@@ -77,11 +66,9 @@ Melhoria aplicada no tratamento da seleção do Sexo do usuário
                         case "M":
                             sexo = "Masculino";
                             break;
-                        
                         case "F":
                             sexo = "Feminino";
                             break;
-                        
                         default:
                             sexo = "Formato inválido";
                             break;
@@ -123,7 +110,12 @@ Correção aplicada seção de cadastro de CPF, que abordava duas validações. 
 
 Melhoria no cadastro do usuário.
 
-Adicionado E-mail.
+Em andamento cadastro de E-mail. 
+
+# Correção 12/09/2023
+
+Foi corrigido a validação do CPF que estava estava passando um valor nulo mesmo sendo preenchido.
+
 
 # Itens a implementar 
 
