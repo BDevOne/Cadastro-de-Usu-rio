@@ -44,7 +44,7 @@ namespace CadastroPessoa
             Console.WriteLine("\n#Dados de Cadastro\n");
 
             var idadeVerificar = cadUser.Idade >= 18; 
-            var cpfVerificar = cadUser.Cpf != null;
+            var cpfVerificar = cadUser.Cpf != cadastro.Cpf;
 
             if (idadeVerificar && cpfVerificar)
             {
