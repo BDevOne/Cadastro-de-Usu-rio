@@ -3,12 +3,12 @@
 Melhoria implementada na Lógica do cadastro
 
             var idadeVerificar = cadUser.Idade >= 18; 
-            var cpfVerificar = cadUser.Cpf != null;
+            var cpfVerificar = cadUser.Cpf != cadastro.Cpf;
 
             if (idadeVerificar && cpfVerificar)
             {
-                Console.WriteLine($"\nUsuário {cadastro.Nome} Cadastrado\n");
-                cadUser.exibirDados();
+                Console.WriteLine($"\nUsuário {cadastro.Nome} Cadas trado\n");
+                cadUser.ExibirDados();
             }
             else 
             {
@@ -21,7 +21,7 @@ Melhoria implementada na Lógica do cadastro
                 }
                 if (!cpfVerificar)
                 {
-                    Console.WriteLine($"\nCPF Inválido");
+                    Console.WriteLine($"\nCPF Inválido: {cadastro.Cpf}");
                 }
             }
            
@@ -116,6 +116,11 @@ Em andamento cadastro de E-mail.
 
 Foi corrigido a validação do CPF que estava estava passando um valor nulo mesmo sendo preenchido.
 
+# Correção 12/12/2023
+
+Efetuada correção na validação do CPF, que anteriormente estava verificando sempre um valor, mesmo que não fosse correto, e realizando o cadastro.
+
+var cpfVerificar = cadUser.Cpf != cadastro.Cpf;
 
 # Itens a implementar 
 
