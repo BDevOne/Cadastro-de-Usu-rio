@@ -1,9 +1,11 @@
+#region Library
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Text.Encodings;
+#endregion
 
 namespace CadastroPessoa
 {
@@ -19,9 +21,8 @@ namespace CadastroPessoa
             Telefone = " ";
             Data = " ";
         }
-        
         #endregion
-         
+
         public string? Nome { get; set; }
         public int Idade { get; set; }
 
@@ -29,51 +30,38 @@ namespace CadastroPessoa
         public string? Cpf
         {
             get { return cpf; }
-            set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    value = value.Replace(".", "").Replace("-", "");
-                    
-                    while (value.Length == 11)
-                    {
-                       cpf = value.Insert(3, ".").Insert(7, ".").Insert(11, "-"); 
-                       break;
-                    }
-                }
-                else 
-                {
-                    cpf = null;
-                }   
-            }
+            set { cpf = value; }
         }
 
-        private string? sexo;
-        public string? Sexo
+        #region gender
+        private string sexo;
+        public string Sexo
         {
             get { return sexo; }
-            set 
+            set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
                     switch (value.ToUpper())
                     {
                         case "M":
-                            sexo = "Masculino";
-                            break;
+                        sexo = "Masculino";
+                        break;
                         case "F":
-                            sexo = "Feminino";
-                            break;
+                        sexo = "Feminino";
+                        break;
                         default:
-                            sexo = "Formato Inválido";
-                            break;    
+                        sexo = "Formato Inválido";
+                        break;
                     }
                 }
             }
         }
+        #endregion
 
-        private string? data;
-        public string? Data
+        #region dateOfBirth
+        private string data;
+        public string Data
         {
             get { return data; }
             set
@@ -91,12 +79,14 @@ namespace CadastroPessoa
                 }
             }
         }
+        #endregion
 
-        private string? telefone;
-        public string? Telefone
+        #region fone
+        private string telefone;
+        public string Telefone
         {
             get { return telefone; }
-            set 
+            set
             {
                 if (!string.IsNullOrEmpty(value))
                 {
@@ -107,22 +97,43 @@ namespace CadastroPessoa
                             telefone = parsedTelefone.ToString();
                         }
                     }
-                    else 
+                    else
                     {
                         telefone = $"Telefone não cadastrado.";
                     }
                 }
             }
         }
-        
+        #endregion
+
+        #region Method viewUserData
         public void ExibirDados()
         {
             Console.WriteLine("Nome: " + Nome);
+            Console.WriteLine("CPF: " + cpf);
             Console.WriteLine("Idade: " + Idade);
-            Console.WriteLine($"CPF: {Cpf}");
             Console.WriteLine("Data de Nascimento: " + Data);
             Console.WriteLine("Sexo: " + Sexo);
             Console.WriteLine("Telefone: " + Telefone);
         }
+
+        #endregion
+
+        public void RemoveEspecialCharacters()
+        {
+            if (!string.IsNullOrEmpty(Cpf))
+            {
+                Cpf = Cpf.Replace(".", "").Replace("-", ""); 
+            }
+        }
+
+        public void AddEspecialCharacters() 
+        {
+            if (!string.IsNullOrEmpty(Cpf))
+            {
+                Cpf = Cpf.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+            }
+        }
+
     }
 }
