@@ -41,7 +41,7 @@ Método **RemoveEspecialCharacters**
 Remove caracteres do tipo '.' e '-', caso o CPF seja inserido com máscara.
 
 Método **AddEspecialCharacters**
-Após validar se o CPF é válido, adicionam-se os caracteres do tipo '.' e '-', permitindo a formatação adequada do CPF para exibição. 
+Após verificar se o CPF é válido, adicionam-se os caracteres do tipo '.' e '-', permitindo a formatação adequada do CPF para exibição. 
 
 # Itens a implementar 
 
