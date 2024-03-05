@@ -30,7 +30,7 @@ Foi corrigido a validação do CPF que estava estava passando um valor nulo mesm
 Efetuada correção na validação do CPF, que anteriormente estava verificando sempre um valor, mesmo que não fosse correto, e realizando o cadastro.
 
 var cpfVerificar = cadUser.Cpf != cadastro.Cpf;
-
+#
 # Melhoria 05/03/2024 
 
 Foram realizadas melhorias no cadastro do CPF, incluindo uma alteração na lógica de validação. Anteriormente o sistema não estava capturando o valor corretamente, resultando em um valor '**nulo**' ou '**vazio**', mesmo quando o campo estava preenchido.
@@ -42,6 +42,7 @@ Remove caracteres do tipo '.' e '-', caso o CPF seja inserido com máscara.
 
 Método **AddEspecialCharacters**
 Após verificar se o CPF é válido, adicionam-se os caracteres do tipo '.' e '-', permitindo a formatação adequada do CPF para exibição. 
+#
 
 # Itens a implementar 
 
