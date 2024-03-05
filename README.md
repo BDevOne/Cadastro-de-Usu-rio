@@ -1,95 +1,4 @@
-# Cadastro de usuario
-
-Melhoria implementada na Lógica do cadastro
-
-            var idadeVerificar = cadUser.Idade >= 18; 
-            var cpfVerificar = cadUser.Cpf != cadastro.Cpf;
-
-            if (idadeVerificar && cpfVerificar)
-            {
-                Console.WriteLine($"\nUsuário {cadastro.Nome} Cadas trado\n");
-                cadUser.ExibirDados();
-            }
-            else 
-            {
-                Console.WriteLine($"\nNão foi possível cadastrar usuário {cadastro.Nome}\n");
-                cadUser.exibirDados();
-
-                if (!idadeVerificar)
-                {
-                    Console.WriteLine($"\nIdade não permitida: {cadastro.Idade}");
-                }
-                if (!cpfVerificar)
-                {
-                    Console.WriteLine($"\nCPF Inválido: {cadastro.Cpf}");
-                }
-            }
-           
-            
-Melhoria aplicada no tratamento das informações do telefone
-
-           if (!string.IsNullOrEmpty(value))
-                {
-                    if (value.Length == 9)
-                    {
-                        if (int.TryParse(value, out int parsedTelefone))
-                        {
-                            telefone = parsedTelefone.ToString();
-                        }
-                    }
-                    else
-                    {
-                        telefone = "Telefone não cadastrado";
-                    }
-                }
-                              
-
-Melhoria aplicada no tratamento de data de nascimento 
-
-            if (!string.IsNullOrEmpty(value))
-                {
-                    if (value.Length == 8)
-                    {
-                        data = $"{value.Substring(0, 2)}/{value.Substring(2, 2)}/{value.Substring(4, 4)}";
-                    }
-                    else
-                    {
-                        data = "Formato Inválido";
-                    }
-                }
-                
-
-Melhoria aplicada no tratamento da seleção do Sexo do usuário
-
-            switch (value.ToUpper())
-            {
-                        case "M":
-                            sexo = "Masculino";
-                            break;
-                        case "F":
-                            sexo = "Feminino";
-                            break;
-                        default:
-                            sexo = "Formato inválido";
-                            break;
-            }  
-            
-                        
-Melhoria CPF
-
-            if (!string.IsNullOrEmpty(value))
-                {
-                    value  = value.Replace(".", "").Replace("-", "");
-
-                    if (value.Length == 11)
-                    {
-                        cpf = value.Insert(3, ".").Insert(7, ".").Insert(11, "-");
-                    }
-                    else
-                    {
-                        cpf = "CPF inválido";
-                    }
-                }
+# **Cadastro de usuario**
                   
 # Updates 17/08/2023 
 
@@ -121,6 +30,18 @@ Foi corrigido a validação do CPF que estava estava passando um valor nulo mesm
 Efetuada correção na validação do CPF, que anteriormente estava verificando sempre um valor, mesmo que não fosse correto, e realizando o cadastro.
 
 var cpfVerificar = cadUser.Cpf != cadastro.Cpf;
+
+# Melhoria 05/03/2024 
+
+Foram realizadas melhorias no cadastro do CPF, incluindo uma alteração na lógica de validação. Anteriormente o sistema não estava capturando o valor corretamente, resultando em um valor '**nulo**' ou '**vazio**', mesmo quando o campo estava preenchido.
+
+Foram desenvolvidos dois métodos para a validação do CPF. 
+
+Método **RemoveEspecialCharacters** 
+Remove caracteres do tipo '.' e '-', caso o CPF seja inserido com máscara.
+
+Método **AddEspecialCharacters**
+Após validar se o CPF é válido, adicionam-se os caracteres do tipo '.' e '-', permitindo a formatação adequada do CPF para exibição. 
 
 # Itens a implementar 
 
