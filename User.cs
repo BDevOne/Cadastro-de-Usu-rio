@@ -1,40 +1,24 @@
-#region Library
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using System.Runtime.InteropServices;
-using System.Text.Encodings;
-#endregion
-
 namespace CadastroPessoa
 {
     public class Users
     {
-        #region Constructors
-        public Users()
+        private string nome = string.Empty;
+        public string Nome
         {
-            Nome = " ";
-            Idade = 0;
-            Cpf = " ";
-            Sexo = " ";
-            Telefone = " ";
-            Data = " ";
+            get { return nome; }
+            set { nome = value; }
         }
-        #endregion
 
-        public string? Nome { get; set; }
         public int Idade { get; set; }
 
-        private string? cpf;
-        public string? Cpf
+        private string cpf = string.Empty;
+        public string Cpf
         {
             get { return cpf; }
             set { cpf = value; }
         }
 
-        #region gender
-        private string sexo;
+        private string sexo = string.Empty;
         public string Sexo
         {
             get { return sexo; }
@@ -57,83 +41,88 @@ namespace CadastroPessoa
                 }
             }
         }
-        #endregion
 
-        #region dateOfBirth
-        private string data;
-        public string Data
+        private string dataDeNascimento = string.Empty;
+        public string DataDeNascimento
         {
-            get { return data; }
-            set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    if (value.Length == 8)
-                    {
-                        data = $"{value.Substring(0, 2)}/{value.Substring(2, 2)}/{value.Substring(4, 4)}";
-                    }
-                    else
-                    {
-                        data = "Formato Inválido";
-                    }
-                }
-            }
+            get { return dataDeNascimento; }
+            set { dataDeNascimento = value; }
         }
-        #endregion
 
-        #region fone
-        private string telefone;
+        private string telefone = string.Empty;
         public string Telefone
         {
             get { return telefone; }
-            set
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    if (value.Length == 9)
-                    {
-                        if (int.TryParse(value, out int parsedTelefone))
-                        {
-                            telefone = parsedTelefone.ToString();
-                        }
-                    }
-                    else
-                    {
-                        telefone = $"Telefone não cadastrado.";
-                    }
-                }
-            }
+            set { telefone = value; }
         }
-        #endregion
 
-        #region Method viewUserData
+        public Users()
+        {
+            Nome = nome;
+            Idade = 0;
+            Cpf = cpf;
+            Sexo = "";
+            Telefone = "";
+            DataDeNascimento = "";
+        }
+
         public void ExibirDados()
         {
             Console.WriteLine("Nome: " + Nome);
             Console.WriteLine("CPF: " + cpf);
             Console.WriteLine("Idade: " + Idade);
-            Console.WriteLine("Data de Nascimento: " + Data);
+            Console.WriteLine("Data de Nascimento: " + DataDeNascimento);
             Console.WriteLine("Sexo: " + Sexo);
             Console.WriteLine("Telefone: " + Telefone);
         }
 
-        #endregion
-
-        public void RemoveEspecialCharacters()
+        public void RemoveEspecialCharactersCpf() 
         {
             if (!string.IsNullOrEmpty(Cpf))
             {
-                Cpf = Cpf.Replace(".", "").Replace("-", ""); 
+                cpf = Cpf.Replace(".", "").Replace("-", "");
             }
         }
 
-        public void AddEspecialCharacters() 
+        public void AddEspecialCharactersCpf() 
         {
             if (!string.IsNullOrEmpty(Cpf))
             {
-                Cpf = Cpf.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+                cpf = Cpf.Insert(3, ".").Insert(7, ".").Insert(11, "-");
             }
         }
 
+        public void dataNascimentoCadastro()
+        {
+            if (!string.IsNullOrEmpty(DataDeNascimento))
+            {
+                if (DataDeNascimento.Length == 8)
+                {
+                    dataDeNascimento = $"{DataDeNascimento.Substring(0, 2)}/{DataDeNascimento.Substring(2, 2)}/{DataDeNascimento.Substring(4, 4)}";
+                }
+            }
+        }
+
+        public void telefoneCadastro()
+        {
+            if (!string.IsNullOrEmpty(Telefone))
+            {
+                if (Telefone.Length == 9)
+                {
+                    if (int.TryParse(Telefone, out int parsedTelefone))
+                    {
+                        telefone = parsedTelefone.ToString();
+                    }
+                }
+                else
+                {
+                    telefone = $"Telefone Inválido. Revalidar telefone '{Telefone}' informado.";
+                }
+            }
+            else if (Telefone == string.Empty)
+            {
+                telefone = $"Usuário optou por não cadastrar Telefone";
+            }
+        }
     }
 }
