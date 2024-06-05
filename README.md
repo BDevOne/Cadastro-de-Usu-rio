@@ -56,8 +56,6 @@ Foi implementado o preenchimento automático da idade no cadastro com base na da
  
 **Mensagem exibida:** Data de Nascimento não informada. Para prosseguir com o cadastro informe a Idade do usuário.
 
-Mensagem apresentada: 
-
 # Itens a implementar 
 
 1. Cadastros múltiplos de usuários-- Em Andamento...
