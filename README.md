@@ -30,7 +30,7 @@ Foi corrigido a validação do CPF que estava estava passando um valor nulo mesm
 Efetuada correção na validação do CPF, que anteriormente estava verificando sempre um valor, mesmo que não fosse correto, e realizando o cadastro.
 
 var cpfVerificar = cadUser.Cpf != cadastro.Cpf;
-#
+
 # Melhoria 05/03/2024 
 
 Foram realizadas melhorias no cadastro do CPF, incluindo uma alteração na lógica de validação. Anteriormente o sistema não estava capturando o valor corretamente, resultando em um valor '**nulo**' ou '**vazio**', mesmo quando o campo estava preenchido.
@@ -44,6 +44,20 @@ Método **AddEspecialCharacters**
 Após verificar se o CPF é válido, adicionam-se os caracteres do tipo '.' e '-', permitindo a formatação adequada do CPF para exibição. 
 #
 
+
+# Melhorias / Correções 05/06/2024
+
+Identificamos algumas falhas no cadastro de usuários, onde os dados do usuário não estavam sendo exibidos quando as informações obrigatórias (CPF/IDADE) não eram fornecidas. Sendo assim, aplicamos algumas melhorias para garantir que, mesmo na ausência dessas informações obrigatórias, os dados do usuário ainda sejam exibidos na tela.
+
+**Implementação - Idade preenchida a partir da Data de Nascimento**
+Foi implementado o preenchimento automático da idade no cadastro com base na data de nascimento. Portanto, ao informar a data de nascimento, não será necessário fornecer a idade manualmente.
+
+**OBS:** Será possível enviar apenas a idade caso a data de nascimento não seja informada.
+ 
+**Mensagem exibida:** Data de Nascimento não informada. Para prosseguir com o cadastro informe a Idade do usuário.
+
+Mensagem apresentada: 
+
 # Itens a implementar 
 
-1. Idade - Pegando a partir data de nascimento informada -- Em Andamento...
+1. Cadastros múltiplos de usuários-- Em Andamento...
