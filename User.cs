@@ -94,12 +94,13 @@ namespace CadastroPessoa
 
         public void dataNascimentoCadastro()
         {
-            if (!string.IsNullOrEmpty(DataDeNascimento))
+            if (!string.IsNullOrEmpty(DataDeNascimento) && DataDeNascimento.Length == 8) 
             {
-                if (DataDeNascimento.Length == 8)
-                {
-                    dataDeNascimento = $"{DataDeNascimento.Substring(0, 2)}/{DataDeNascimento.Substring(2, 2)}/{DataDeNascimento.Substring(4, 4)}";
-                }
+                dataDeNascimento = $"{DataDeNascimento.Substring(0, 2)}/{DataDeNascimento.Substring(2, 2)}/{DataDeNascimento.Substring(4, 4)}";
+            }
+            else
+            {
+                dataDeNascimento = null;
             }
         }
 
