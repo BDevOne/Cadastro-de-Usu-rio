@@ -18,9 +18,9 @@ namespace CadastroPessoa
             Console.Write("\nData de nascimento do usuário: ");
             cadastro.DataDeNascimento = Console.ReadLine();
 
+            cadastro.dataNascimentoCadastro();
             if (!string.IsNullOrEmpty(cadastro.DataDeNascimento))
             {
-                cadastro.dataNascimentoCadastro();
                 string[] separarAno = cadastro.DataDeNascimento.Split('/');
                 if (separarAno.Length >= 3 && int.TryParse(separarAno[2], out int anoNascimentoUsuario) && cadastro.Idade <= 0)
                 {
