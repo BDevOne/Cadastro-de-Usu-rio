@@ -18,23 +18,19 @@ namespace CadastroPessoa
             Console.Write("\nData de nascimento do usuário: ");
             cadastro.DataDeNascimento = Console.ReadLine();
 
-            FIRST Lógica Data de Nascimento pela cadastro.Idade 
             if (!string.IsNullOrEmpty(cadastro.DataDeNascimento))
             {
                 cadastro.dataNascimentoCadastro();
                 string[] separarAno = cadastro.DataDeNascimento.Split('/');
-                int anoNascimentoUsuario = int.Parse(separarAno[2]);
-                int AnoSplit = int.Parse(separarAno[2]);
-
-                if (cadastro.Idade <= 0)
+                if (separarAno.Length >= 3 && int.TryParse(separarAno[2], out int anoNascimentoUsuario) && cadastro.Idade <= 0)
                 {
-                    cadastro.Idade = DateTime.Now.Year - AnoSplit;
-                }
+                    cadastro.Idade = DateTime.Now.Year - anoNascimentoUsuario;
+                }    
             }
             else if (string.IsNullOrEmpty(cadastro.DataDeNascimento))
             {
                 ExibirErroCadastrarUsuario(mensagemErro: $"Data de Nascimento não informada. Para prosseguir com o cadastro informe a Idade do usuário.");
-                Console.Write("Informe a Data de Nascimento do usuário: ");
+                Console.Write("Informe a Idade do usuário: ");
                 cadastro.Idade = Convert.ToInt32(Console.ReadLine());
             }
             
