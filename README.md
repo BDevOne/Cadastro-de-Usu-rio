@@ -56,6 +56,10 @@ Foi implementado o preenchimento automático da idade no cadastro com base na da
  
 **Mensagem exibida:** Data de Nascimento não informada. Para prosseguir com o cadastro informe a Idade do usuário.
 
+# Correção 02/07/2024 - Campo cadastro.DataDeNascimento
+
+Identificamos e corrigimos o erro que ocorria ao passar um valor nulo no campo cadastro.DataDeNascimento. Devido a isso, não estava sendo possível informar a idade do usuário, o que impedia a realização do cadastro.
+
 # Itens a implementar 
 
 1. Cadastros múltiplos de usuários-- Em Andamento...
