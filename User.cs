@@ -1,3 +1,14 @@
+#region Library
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+using System.Text.Encodings;
+using System.IO;
+using Newtonsoft.Json;
+using System.Runtime.CompilerServices;
+#endregion
+
 namespace CadastroPessoa
 {
     public class Users
@@ -9,7 +20,12 @@ namespace CadastroPessoa
             set { nome = value; }
         }
 
-        public int Idade { get; set; }
+        private int idade;
+        public int Idade 
+        {
+            get { return idade; }
+            set { idade = value; }   
+        }
 
         private string cpf = string.Empty;
         public string Cpf
@@ -59,24 +75,33 @@ namespace CadastroPessoa
         public Users()
         {
             Nome = nome;
-            Idade = 0;
+            Idade = idade;
             Cpf = cpf;
             Sexo = "";
             Telefone = "";
             DataDeNascimento = "";
         }
-
+        
         public void ExibirDados()
         {
-            Console.WriteLine("Nome: " + Nome);
-            Console.WriteLine("CPF: " + cpf);
-            Console.WriteLine("Idade: " + Idade);
-            Console.WriteLine("Data de Nascimento: " + DataDeNascimento);
+            Console.WriteLine("Login Usuário: " + Nome);
+            Console.WriteLine("CPF Usuário: " + cpf);
+            Console.WriteLine("Idade Usuário: " + Idade);
+
+            if (!string.IsNullOrEmpty(DataDeNascimento))
+            {
+                Console.WriteLine("Data de Nascimento: " + DataDeNascimento);
+            }
+            else
+            {
+                Console.WriteLine($"Data de Nascimento: O usuário optou por informar apenas a 'Idade'");
+            }
+
             Console.WriteLine("Sexo: " + Sexo);
             Console.WriteLine("Telefone: " + Telefone);
         }
 
-        public void RemoveEspecialCharactersCpf() 
+        public void RemoverMascaraCpf()
         {
             if (!string.IsNullOrEmpty(Cpf))
             {
@@ -84,19 +109,32 @@ namespace CadastroPessoa
             }
         }
 
-        public void AddEspecialCharactersCpf() 
+        public bool validacaoCpfUsuario()
         {
-            if (!string.IsNullOrEmpty(Cpf))
+            RemoverMascaraCpf();
+            if (!string.IsNullOrEmpty(Cpf) && Cpf.Length == 11)
             {
                 cpf = Cpf.Insert(3, ".").Insert(7, ".").Insert(11, "-");
+                return true;
             }
+            return false;
+        }
+
+        public bool validarIdadeUsuario()
+        {
+            if (Idade >= 18)
+            {
+                idade = Idade;
+                return true;
+            }
+            return false;
         }
 
         public void dataNascimentoCadastro()
         {
-            if (!string.IsNullOrEmpty(DataDeNascimento) && DataDeNascimento.Length == 8) 
+            if (!string.IsNullOrEmpty(DataDeNascimento) && DataDeNascimento.Length == 8)
             {
-                dataDeNascimento = $"{DataDeNascimento.Substring(0, 2)}/{DataDeNascimento.Substring(2, 2)}/{DataDeNascimento.Substring(4, 4)}";
+                dataDeNascimento = DataDeNascimento.Insert(2, "/").Insert(5, "/");
             }
             else
             {
@@ -108,12 +146,9 @@ namespace CadastroPessoa
         {
             if (!string.IsNullOrEmpty(Telefone))
             {
-                if (Telefone.Length == 9)
+                if (Telefone.Length == 9 && int.TryParse(Telefone, out int parsedTelefone))
                 {
-                    if (int.TryParse(Telefone, out int parsedTelefone))
-                    {
-                        telefone = parsedTelefone.ToString();
-                    }
+                    telefone = parsedTelefone.ToString();
                 }
                 else
                 {
@@ -125,5 +160,6 @@ namespace CadastroPessoa
                 telefone = $"Usuário optou por não cadastrar Telefone";
             }
         }
+        
     }
 }
