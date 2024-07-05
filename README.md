@@ -69,6 +69,6 @@ Foi corrigida algumas falhas no presente no cadastro do usuário.
 
 Criado método para validação da Idade do usuário, **validarIdadeUsuario**. 
 
-Implementado cadastros múltiplos de **Usuário**. Agora será possível cadastrar mais de 1 usuário. 
-Deve ser apresentada uma mensagem na tela ao final do cadastro, **"Deseja cadastrar outros usuários? (S/N):"** para seguir com os cadastros basta informa="S", caso contrário deverá apresentar na tela as informações dos usuários cadastrados e não cadastrados. 
+Implementado cadastros múltiplos, agora será possível cadastrar mais de 1 usuário. 
+Deve ser apresentada uma mensagem na tela ao final do cadastro, **"Deseja cadastrar outros usuários? (S/N):"** , para seguir com os cadastros basta informa="S", caso contrário deverá apresentar na tela as informações dos usuários cadastrados e não cadastrados. 
 
