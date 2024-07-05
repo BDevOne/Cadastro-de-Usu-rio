@@ -20,8 +20,6 @@ namespace project
             List<Users> listaCadastros = new List<Users>();
 
             string seguirCadastrosUsuarios = "S";
-
-            // verificação caso o S for um valor nulo aguardar o valor correto, em andamento..
             while (!string.IsNullOrEmpty(seguirCadastrosUsuarios) && seguirCadastrosUsuarios.ToUpper() == "S") 
             {
                 Users cadastros = new Users();
@@ -46,13 +44,10 @@ namespace project
                 }
                 else if (string.IsNullOrEmpty(cadastros.DataDeNascimento))
                 {
-                    /* Adicionar tratamento na mensagem de erro pra quando o usuário optar por não informar e quando informar 1 ou mais valores */
                     Console.WriteLine($"Data de Nascimento não informada. Para prosseguir com o cadastro, informe a Idade do usuário.");
                     Console.Write("Informe a Idade do usuário: ");
                     cadastros.Idade = Convert.ToInt32(Console.ReadLine());
                 }
-
-                /* Adicionar tratamento na lista de Usuarios, onde o mesmo so pode ser cadastrado, caso esteja com todo os requisitos de cadastro preenchidos */
 
                 listaCadastros.Add(cadastros);
 
@@ -65,13 +60,10 @@ namespace project
 
         public void ExibirDadosUsuariosCadastrados(List<Users> listaCadastros)
         {
-            // Adicionar verificação no cadastro, para que seja verificado se todos os usuarios foram cadastrados ou não.
-            // Validação para que não seja apresentado usuarios cadastrado mesmo o cadastro falho
             Console.WriteLine($"\nUsuários Cadastrados");
 
             foreach (var user in listaCadastros)
             {
-                // user.RemoverMascaraCpf();
                 if (user.validacaoCpfUsuario() && user.validarIdadeUsuario())
                 {
                     Console.WriteLine($"\nNome: {user.Nome}");
