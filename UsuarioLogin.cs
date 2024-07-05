@@ -73,7 +73,7 @@ namespace project
                 }
                 else
                 {
-                    if (user.Cpf.Length < 11 && user.Idade < 18)
+                    if (user.Cpf.Length < 11 || user.Idade < 18)
                     {
                         ExibirErroCadastrarUsuario(mensagemErro: $"Usuário não cadastrado corretamente.");
                         Console.WriteLine($"\nNome: {user.Nome}");
