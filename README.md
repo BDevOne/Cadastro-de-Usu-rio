@@ -60,6 +60,15 @@ Foi implementado o preenchimento automático da idade no cadastro com base na da
 
 Identificamos e corrigimos o erro que ocorria ao passar um valor nulo no campo cadastro.DataDeNascimento. Devido a isso, não estava sendo possível informar a idade do usuário, o que impedia a realização do cadastro.
 
-# Itens a implementar 
 
-1. Cadastros múltiplos de usuários-- Em Andamento...
+# Correção 05/07/2024 - Refatoração - Melhoria Cadastro Mútiplos -
+
+Foi adicionada nova classe responsável pelo cadastro do **'Usuário'**, UsuarioLogin.cs.
+
+Foi corrigida algumas falhas no presente no cadastro do usuário. 
+
+Criado método para validação da Idade do usuário, **validarIdadeUsuario**. 
+
+Implementado cadastros múltiplos de **Usuário**. Agora será possível cadastrar mais de 1 usuário. 
+Deve ser apresentada uma mensagem na tela ao final do cadastro, **"Deseja cadastrar outros usuários? (S/N):"** para seguir com os cadastros basta informa="S", caso contrário deverá apresentar na tela as informações dos usuários cadastrados e não cadastrados. 
+
