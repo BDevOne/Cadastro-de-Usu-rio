@@ -21,15 +21,18 @@ Melhoria no cadastro do usuário.
 
 Em andamento cadastro de E-mail. 
 
+
 # Correção 12/09/2023
 
 Foi corrigido a validação do CPF que estava estava passando um valor nulo mesmo sendo preenchido.
+
 
 # Correção 12/12/2023
 
 Efetuada correção na validação do CPF, que anteriormente estava verificando sempre um valor, mesmo que não fosse correto, e realizando o cadastro.
 
 var cpfVerificar = cadUser.Cpf != cadastro.Cpf;
+
 
 # Melhoria 05/03/2024 
 
@@ -42,7 +45,6 @@ Remove caracteres do tipo '.' e '-', caso o CPF seja inserido com máscara.
 
 Método **AddEspecialCharacters**
 Após verificar se o CPF é válido, adicionam-se os caracteres do tipo '.' e '-', permitindo a formatação adequada do CPF para exibição. 
-#
 
 
 # Melhorias / Correções 05/06/2024
@@ -55,6 +57,7 @@ Foi implementado o preenchimento automático da idade no cadastro com base na da
 **OBS:** Será possível enviar apenas a idade caso a data de nascimento não seja informada.
  
 **Mensagem exibida:** Data de Nascimento não informada. Para prosseguir com o cadastro informe a Idade do usuário.
+
 
 # Correção 02/07/2024 - Campo cadastro.DataDeNascimento
 
@@ -71,6 +74,7 @@ Criado método para validação da Idade do usuário, **validarIdadeUsuario**.
 
 Implementado cadastros múltiplos, agora será possível cadastrar mais de 1 usuário. 
 Deve ser apresentada uma mensagem na tela ao final do cadastro, **"Deseja cadastrar outros usuários? (S/N):"** , para seguir com os cadastros basta informa="S", caso contrário deverá apresentar na tela as informações dos usuários cadastrados e não cadastrados. 
+
 
 # Correção 08/07/2024 - Correção Lista de Usuários
 
