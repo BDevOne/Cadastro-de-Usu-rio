@@ -72,3 +72,8 @@ Criado método para validação da Idade do usuário, **validarIdadeUsuario**.
 Implementado cadastros múltiplos, agora será possível cadastrar mais de 1 usuário. 
 Deve ser apresentada uma mensagem na tela ao final do cadastro, **"Deseja cadastrar outros usuários? (S/N):"** , para seguir com os cadastros basta informa="S", caso contrário deverá apresentar na tela as informações dos usuários cadastrados e não cadastrados. 
 
+# Correção 08/07/2024 - Correção Lista de Usuários
+
+Foi adicionadas a nova funcionalidade usuariosValidos e usuariosInvalidos. Onde a mesma tem por finalidade de separar cada usuário cadastrado e não cadastrado.
+
+Correção aplicada. Foi verificado que usuários cadastrados seguinte a usuários não cadastrados, eram apresentados incorretamente como Não cadastrados.
