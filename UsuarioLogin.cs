@@ -60,28 +60,60 @@ namespace project
 
         public void ExibirDadosUsuariosCadastrados(List<Users> listaCadastros)
         {
-            Console.WriteLine($"\nUsuários Cadastrados");
-
+             List<Users> usuariosValidos = new List<Users>();
+             List<Users> usuariosInvalidos = new List<Users>();
+            
+             Console.WriteLine($"\nDados do Usuários\n");
+             
             foreach (var user in listaCadastros)
+            { 
+                if (user.validacaoCpfUsuario() && user.validarIdadeUsuario()) 
+                 {
+                     usuariosValidos.Add(user);
+                 }
+                 else
+                 {
+                     usuariosInvalidos.Add(user);
+                 }
+            }
+            
+            if (usuariosValidos.Count > 0)
             {
-                if (user.validacaoCpfUsuario() && user.validarIdadeUsuario())
+                Console.WriteLine("Usuários cadastrados");
+                foreach (var user in usuariosValidos)
                 {
                     Console.WriteLine($"\nNome: {user.Nome}");
                     Console.WriteLine($"CPF: {user.Cpf}");
                     Console.WriteLine($"Data de Nascimento: {user.DataDeNascimento}");
                     Console.WriteLine($"Idade: {user.Idade}");
                 }
-                else
+            }
+            else
+            {
+                Console.WriteLine("Nenhum Usuário cadastrado");
+            }
+
+            if (usuariosInvalidos.Count > 0)
+            {
+                Console.WriteLine("\nUsuários não cadastrados");
+                foreach (var user in usuariosInvalidos)
                 {
+                    Console.WriteLine($"\nNome: {user.Nome}");
                     if (user.Cpf.Length < 11 || user.Idade < 18)
                     {
-                        ExibirErroCadastrarUsuario(mensagemErro: $"Usuário não cadastrado corretamente.");
-                        Console.WriteLine($"\nNome: {user.Nome}");
-                        Console.WriteLine($"CPF: Não informado");
-                        Console.WriteLine($"Data de Nascimento: {user.DataDeNascimento}");
-                        Console.WriteLine($"Idade: {user.Idade}");
+                        Console.WriteLine("CPF: Não informado ou Incorreto.");
                     }
+                    else
+                    {
+                        Console.WriteLine($"CPF: {user.Cpf}");
+                    }
+                    Console.WriteLine($"Data de Nascimento: {user.DataDeNascimento}");
+                    Console.WriteLine($"Idade: {user.Idade}");
                 }
+            }
+            else
+            {
+                Console.WriteLine("\nTodos Usuários Foram cadastrados corretamente.");
             }
         }
 
