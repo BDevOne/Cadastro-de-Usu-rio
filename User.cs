@@ -81,26 +81,7 @@ namespace CadastroPessoa
             Telefone = "";
             DataDeNascimento = "";
         }
-        
-        public void ExibirDados()
-        {
-            Console.WriteLine("Login Usuário: " + Nome);
-            Console.WriteLine("CPF Usuário: " + cpf);
-            Console.WriteLine("Idade Usuário: " + Idade);
-
-            if (!string.IsNullOrEmpty(DataDeNascimento))
-            {
-                Console.WriteLine("Data de Nascimento: " + DataDeNascimento);
-            }
-            else
-            {
-                Console.WriteLine($"Data de Nascimento: O usuário optou por informar apenas a 'Idade'");
-            }
-
-            Console.WriteLine("Sexo: " + Sexo);
-            Console.WriteLine("Telefone: " + Telefone);
-        }
-
+         
         public void RemoverMascaraCpf()
         {
             if (!string.IsNullOrEmpty(Cpf))
