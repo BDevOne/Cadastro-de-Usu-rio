@@ -77,3 +77,5 @@ Deve ser apresentada uma mensagem na tela ao final do cadastro, **"Deseja cadast
 Foi adicionadas a nova funcionalidade usuariosValidos e usuariosInvalidos. Onde a mesma tem por finalidade de separar cada usuário cadastrado e não cadastrado.
 
 Correção aplicada. Foi verificado que usuários cadastrados seguinte a usuários não cadastrados, eram apresentados incorretamente como Não cadastrados.
+
+Método **ExibirDados** removido. Nas versões mais recentes, foi verificado que o método estava obsoleto e não era mais utilizado.
